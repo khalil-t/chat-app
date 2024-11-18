@@ -4,7 +4,10 @@ import { createContext, useContext, useState } from "react";
 import { useEffect } from 'react';
 import { AuthUserContext } from "./AuthContext";
 const SocketContext = useContext()
+export const useSocketContext=()=>{
 
+    return useContext(SocketContext)
+}
 export const SocketContextProvider =({children})=>{
 
 const [socket , setSocket]=useState(null)
@@ -20,7 +23,7 @@ query : {
 
 })
 
-socket.on("getOnlineusers", (user)=>{
+socket.on("getOnlineUsers", (user)=>{
     setOnlineUsers(user)
 })
 setSocket(socket)
