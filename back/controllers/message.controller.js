@@ -4,33 +4,30 @@ import Message from "../model/message.model.js"
 import User from "../model/user.model.js"
 import mongoose from 'mongoose'; 
 import Conversation from "../model/conversation.model.js";
+import {getreciveSocket} from "../socket/socket.js"
 export const sendmessage=async(req,res )=>{
 try{
-
-
 const {id:reciverid}= req.params
 const {message}=req.body
 const senderid= req.user._id
-
-
 let conversationsearch= await conversation.findOne({
     participants: { $all: [senderid, reciverid] },
 })
     if(!conversationsearch){
         conversationsearch = await conversation.create({
-
             participants:  [senderid, reciverid] ,
-
-        })
-        
+        })        
     }
-    
     const newmassage = await Message.create({senderid,reciverid ,message })
 if(newmassage){
     conversationsearch.messages.push(newmassage._id)
-
 }
 await conversationsearch.save()
+
+const reciverId =getreciveSocket(reciverid)
+if(reciverId){
+    io.to(reciverId).emit("newMessgae", newmassage)
+}
 res.status(201).send({ message: 'Message sent successfully', newmassage });
 }
 catch(error){

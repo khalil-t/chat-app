@@ -6,6 +6,7 @@ const Messages = () => {
     const { messages } = useGetMessages(); // Ensure you get messages array
     console.log(messages);
 
+    
     if (!Array.isArray(messages.messages)) {
         return <p>No messages available.</p>; // Handle the case when messages isn't an array
     }
@@ -26,3 +27,4 @@ const Messages = () => {
 };
 
 export default Messages;
+//call uselisen messages

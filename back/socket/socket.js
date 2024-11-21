@@ -1,11 +1,3 @@
-
-//userof the socket 
-//connect inside it 
-//recupere l userid
-//add it to usersocket map
-//emit online users
-//diconnect
-
 import { Server } from "socket.io";
 import http from "http";
 import express from "express";
@@ -20,23 +12,28 @@ cors:{
     methods: ["GET", "POST"],
 }
 });
-const SocketMap={}
 
+
+const socketMap= {}
+export const getreciveSocket=(user)=>{
+    return socketMap[user]
+    
+    }
 io.on("connection",(socket)=>{
-console.log(`the socket id ${socket.id}`)
-
+console.log(`user socket id ${socket.id}`)
 const UserId= socket.handshake.query.userId;
+if(UserId!= "undefined")socketMap[UserId]=socket.id
+io.emit("getOnlineUsers",Object.keys(socketMap))
 
- if(UserId!="undefined") SocketMap[UserId] = socket.id
 
-
-socket.emit("getOnlineUsers", Object.keys(SocketMap) )
-
-socket.on('disconnected',()=>{
-    console.log(`User diconnected`)
-delete SocketMap[UserId];
-io.emit("getOnlineusers", Object.keys(SocketMap))
+socket.on("disconnected",()=>{
+console.log("disconnected")
+delete socketMap[UserId]
+io.emit("getOnlineUsers",Object.keys(socketMap))
 
 })
+return {app ,io , socket,getreciveSocket}
+
 })
-return {app ,io , socket}
+
+

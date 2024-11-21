@@ -1,9 +1,11 @@
 import useConversation from "../../zustand/useConversation.jsx";
+import { useSocketContext } from "../../context/SocketContext";
 
 const Conversation = ({ conversation, lastIdx, emoji }) => {
 const {selectedConversation,setSelectedConversation}= useConversation()
-
-	return (
+const { onlineUsers } = useSocketContext();
+const isOnline = Array.isArray(onlineUsers) && OnlineUsers.includes(conversation._id);
+return (
 		<>
 			<div
 				className= {`flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer
@@ -32,3 +34,4 @@ const {selectedConversation,setSelectedConversation}= useConversation()
 	);
 };
 export default Conversation;
+//check if the currnt user is online and display the green 
