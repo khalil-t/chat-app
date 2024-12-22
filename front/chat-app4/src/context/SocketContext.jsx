@@ -14,15 +14,18 @@ const [socket , setSocket]=useState(null);
 const [OnlineUsers, setOnlineUsers]=useState([]);
 const {Auth}= useAuthUser();
 useEffect(()=>{
-if(Auth){
-const socket = io( "", {
+if(Auth&& Auth._id){
+const socket = io( import.meta.env.VITE_USERS_BACKEND, {
 query : {
-    userId: Auth._id
+    userId:Auth._id
+
 }
 })
+console.log(Auth._id)
 socket.on("getOnlineUsers", (user)=>{
     setOnlineUsers(user)
 })
+
 setSocket(socket)
 return ()=>{socket.close()}
 }

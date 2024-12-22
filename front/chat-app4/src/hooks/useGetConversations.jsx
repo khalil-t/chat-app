@@ -10,7 +10,7 @@ const useGetConversations = () => {
   ()=>{
 const getConversations =async()=>{
 try{
-const res= await fetch("http://localhost:7000/allusers")
+const res= await fetch(import.meta.env.VITE_USERS_MESSAGES_URL)
 const data= await res.json()
 setConversation(data)
 }

@@ -28,9 +28,6 @@ return () => socket?.off("newMessage");
 send message : message input call for message controllers and send getReceiverSocketId with reciverid to get his
 socketid in socket.js 
 in uselisten we use socket.on to listen to new message and set messages to new message 
-
-
-
 */
 
 

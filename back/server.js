@@ -20,8 +20,8 @@ app.use('/', router);
 app.use('/', messageRoutes )
 app.use('/', allUsers )
 
-const port = process.env.PORT || 7000
-
+const port =  7000
+//process.env.PORT ||
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}...`);
 });

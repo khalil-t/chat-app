@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const io = new Server(server,{
 cors:{
 
-    origin: [""],
+    origin: [process.env.FRONTEND_ORIGIN],
     methods: ["GET", "POST"],
 }
 });
@@ -22,6 +22,7 @@ export const getreciveSocket=(user)=>{
 io.on("connection",(socket)=>{
 console.log(`user socket id ${socket.id}`)
 const UserId= socket.handshake.query.userId;
+
 if(UserId!= "undefined")socketMap[UserId]=socket.id
 io.emit("getOnlineUsers",Object.keys(socketMap))
 
@@ -32,6 +33,7 @@ delete socketMap[UserId]
 io.emit("getOnlineUsers",Object.keys(socketMap))
 
 })
+
 return {app ,io , socket,getreciveSocket}
 
 })

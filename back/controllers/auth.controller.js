@@ -88,6 +88,14 @@ catch(error){
 
 }
 
+export const defaultmessage =(req,res)=>{
+
+    res.json({ message: "Welcome to my API!" });
+
+
+
+} 
+
 
 
 
