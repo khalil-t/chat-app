@@ -3,8 +3,8 @@ import { useSocketContext } from "../../context/SocketContext";
 
 const Conversation = ({ conversation, lastIdx, emoji }) => {
 const {selectedConversation,setSelectedConversation}= useConversation()
-const { onlineUsers } = useSocketContext();
-const isOnline = Array.isArray(onlineUsers) && OnlineUsers.includes(conversation._id);
+const { OnlineUsers } = useSocketContext();
+const isOnline = Array.isArray(OnlineUsers) && OnlineUsers.includes(conversation._id);
 return (
 		<>
 			<div

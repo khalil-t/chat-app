@@ -7,7 +7,7 @@ const server = http.createServer(app);
 
 const io = new Server(server,{
 cors:{
-
+ 
     origin: [process.env.FRONTEND_ORIGIN],
     methods: ["GET", "POST"],
 }
@@ -34,8 +34,5 @@ io.emit("getOnlineUsers",Object.keys(socketMap))
 
 })
 
-return {app ,io , socket,getreciveSocket}
-
 })
-
-
+export { app, io, server };
