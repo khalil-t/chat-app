@@ -11,15 +11,12 @@ const {messages , setMessages }= useConversation()
 const handleSubmit=async(e)=>{
 	e.preventDefault();
 
-try{
 	if (!message) return;
 	await sendMessage(message);
+	console.log(message)
 	setMessage("");
-	setMessages(message)
-	console.log(messages)
-}
-catch(error){      console.log("Error sending message:", error); 
-}
+
+
 }
 	return (
 		<form className='px-4 my-3' onSubmit={handleSubmit}>

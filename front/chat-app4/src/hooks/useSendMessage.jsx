@@ -3,7 +3,6 @@ import useConversation from '../zustand/useConversation.jsx'
 const useSendMessage = () => {
 
 const {messages , setMessages,selectedConversation}= useConversation();
-console.log(messages)
 
 const sendMessage=async(message)=>{
 try{

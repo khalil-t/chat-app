@@ -15,7 +15,7 @@ const [OnlineUsers, setOnlineUsers]=useState([]);
 const {Auth}= useAuthUser();
 useEffect(()=>{
 if(Auth&& Auth._id){
-const socket = io( import.meta.VITE_USERS_BACKEND, {
+const socket = io( "http://localhost:7000", {
 query : {
     userId:Auth._id
 
@@ -23,13 +23,14 @@ query : {
 transports: ["websocket", "polling"], 
 
 })
-console.log(Auth)
+setSocket(socket)
+
+//console.log(Auth)
 socket.on("getOnlineUsers", (user)=>{
     setOnlineUsers(user)
 })
-console.log(OnlineUsers)
+//console.log(OnlineUsers)
 
-setSocket(socket)
 }
 else{
 	if (socket) {

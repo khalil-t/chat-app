@@ -1,12 +1,11 @@
 import { useEffect, useRef } from "react";
 import Message from "./Message";
 import useGetMessages from "../../hooks/useGetMessages.jsx";
-
+import useListenMessages from "../../hooks/useListenMessages";
 const Messages = () => {
     const { messages } = useGetMessages(); // Ensure you get messages array
-    console.log(messages);
 
-    
+    useListenMessages();
     if (!Array.isArray(messages.messages)) {
         return <p>No messages available.</p>; // Handle the case when messages isn't an array
     }

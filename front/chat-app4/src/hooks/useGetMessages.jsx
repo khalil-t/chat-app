@@ -3,7 +3,6 @@ import useConversation from '../zustand/useConversation.jsx';
 
 const useGetMessages = () => {
     const {messages, setMessages, selectedConversation } = useConversation();
-    console.log(messages)
     useEffect(() => {
         const getMessages = async () => {
           

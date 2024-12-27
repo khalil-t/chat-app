@@ -1,6 +1,5 @@
 const Message = ({ message }) => {
-    console.log(message);
-    console.log('Message displayed');
+
 
     return (
         <div className={`chat`}>

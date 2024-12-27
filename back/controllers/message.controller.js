@@ -4,7 +4,7 @@ import Message from "../model/message.model.js"
 import User from "../model/user.model.js"
 import mongoose from 'mongoose'; 
 import Conversation from "../model/conversation.model.js";
-import {getreciveSocket} from "../socket/socket.js"
+import {getreciveSocket ,io} from "../socket/socket.js"
 export const sendmessage=async(req,res )=>{
 try{
 const {id:reciverid}= req.params
@@ -25,13 +25,15 @@ if(newmassage){
 await conversationsearch.save()
 
 const reciverId =getreciveSocket(reciverid)
+     //console.log(`reciverId : ${reciverid}`)
 if(reciverId){
     io.to(reciverId).emit("newMessgae", newmassage)
+//    console.log(`newmassage:${newmassage}`)
 }
 res.status(201).send({ message: 'Message sent successfully', newmassage });
 }
 catch(error){
-console.log("Error in dvdvd controller", error.message);
+console.log("Error in contrfffoller", error.message);
 res.status(500).json({error: error.message})}
 }
 
@@ -48,13 +50,11 @@ res.status(500).json({error: error.message})}
 export const receivemessage=async(req,res)=>{
 
     try{
-        console.log( req.user)
         const { id: reciverid } = req.params;
 		const senderid = req.user._id;
         const reciverIdObjectId = new mongoose.Types.ObjectId(reciverid); 
 
-console.log(senderid)
-console.log(reciverIdObjectId)
+
 const findconversation = await Conversation.findOne({
     participants: { $all: [senderid , reciverIdObjectId ] },
 }).populate("messages")
