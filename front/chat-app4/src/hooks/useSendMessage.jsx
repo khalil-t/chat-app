@@ -12,11 +12,14 @@ const res= await fetch(`${import.meta.env.VITE_SEND_MESSAGE_URL}/${selectedConve
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({ message }),
-				credentials: 'include' // Include credentials to send cookies
+				credentials: 'include' 
 
 			})
 const data= await res.json()
-setMessages([...messages , data])
+ //console.log(data)
+setMessages([...messages, data])
+// (Array.isArray(messages) ? messages : [])
+//console.log(messages )
 
 }
 catch(error){

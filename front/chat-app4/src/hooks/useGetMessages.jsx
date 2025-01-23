@@ -1,11 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useConversation from '../zustand/useConversation.jsx';
 
 const useGetMessages = () => {
     const {messages, setMessages, selectedConversation } = useConversation();
+    const [loading, setLoading] = useState(false);
+
     useEffect(() => {
         const getMessages = async () => {
           
+			setLoading(true);
 
             try {
                 const res = await fetch(`${import.meta.env.VITE_RECEIVE_MESSAGES_URL}/${selectedConversation._id}`, {
@@ -19,16 +22,19 @@ const useGetMessages = () => {
 
                 const data = await res.json();
                 setMessages(data); 
+              //  console.log(data)
             } catch (error) {
                 console.log(error); 
-            }
+            }finally {
+				setLoading(false);
+			}
         };
 
-        getMessages(); 
-    }, [selectedConversation, setMessages]);
+        if (selectedConversation?._id) getMessages();
+        }, [selectedConversation?._id, setMessages]);
 
   
-    return { messages: messages || [] };
+    return { messages: messages || [], loading };
 };
 
 export default useGetMessages;

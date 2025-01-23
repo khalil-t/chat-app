@@ -13,7 +13,7 @@ const handleSubmit=async(e)=>{
 
 	if (!message) return;
 	await sendMessage(message);
-	console.log(message)
+	//console.log(message)
 	setMessage("");
 
 
