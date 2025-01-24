@@ -16,10 +16,16 @@ const res= await fetch(`${import.meta.env.VITE_SEND_MESSAGE_URL}/${selectedConve
 
 			})
 const data= await res.json()
- //console.log(data)
-setMessages([...messages, data])
-// (Array.isArray(messages) ? messages : [])
-//console.log(messages )
+ console.log(data.newmassage )
+ console.log(messages.messages.messages )
+
+
+
+
+
+ setMessages([...(messages.messages.messages || []), data.newmassage]);
+ // (Array.isArray(messages) ? messages : [])
+ //console.log(messages.messages.messages )
 
 }
 catch(error){
