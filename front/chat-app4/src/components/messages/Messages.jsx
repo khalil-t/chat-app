@@ -6,7 +6,7 @@ import MessageSkeleton from "../../skeletons/MessageSkeleton";
 
 const Messages = () => {
     const { messages, loading } = useGetMessages(); 
-//console.log(messages.messages.messages)
+//console.log(messages)
     useListenMessages();
     if (!Array.isArray(messages.messages)) {
         return <p>No messages available.</p>; 
@@ -17,7 +17,7 @@ const Messages = () => {
 			{!loading &&
 				
 				messages.messages.map((message) => (
-					<div key={message._id} >
+					<div  >
 						<Message message={message} />
 					</div>
 				))}

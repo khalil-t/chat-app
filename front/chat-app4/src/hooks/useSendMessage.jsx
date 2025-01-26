@@ -17,15 +17,21 @@ const res= await fetch(`${import.meta.env.VITE_SEND_MESSAGE_URL}/${selectedConve
 			})
 const data= await res.json()
  console.log(data.newmassage )
- console.log(messages.messages.messages )
+
+// console.log(messages.messages )
+//console.log(messages.messages.messages)
+
+ const currentMessages = Array.isArray(messages.messages) ? messages.messages : []; // Get current messages array
+ const updatedMessages = [...currentMessages, data.newmassage];
 
 
 
 
 
- setMessages([...(messages.messages.messages || []), data.newmassage]);
- // (Array.isArray(messages) ? messages : [])
- //console.log(messages.messages.messages )
+ setMessages([...currentMessages, data.newmassage])
+
+ // console.log("Messages state after update:", messages);
+
 
 }
 catch(error){
