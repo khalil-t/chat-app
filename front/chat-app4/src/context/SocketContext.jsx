@@ -15,7 +15,7 @@ const [OnlineUsers, setOnlineUsers]=useState([]);
 const {Auth}= useAuthUser();
 useEffect(()=>{
 if(Auth&& Auth._id){
-const socket = io( "http://localhost:7000", {
+const socket = io(import.meta.env.VITE_USERS_BACKEND , {
 query : {
     userId:Auth._id
 
@@ -29,8 +29,8 @@ setSocket(socket)
 socket.on("getOnlineUsers", (user)=>{
     setOnlineUsers(user)
 })
-//console.log(OnlineUsers)
-
+//console.log( OnlineUsers)
+return () => socket.close();
 }
 else{
 	if (socket) {

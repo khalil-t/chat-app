@@ -20,7 +20,7 @@ const Messages = () => {
     <div className="px-4 flex-1 overflow-auto">
       {!loading &&
         messages.messages.map((message) => (
-          <div key={message._id}>
+          <div >
             <Message message={message} />
           </div>
         ))}

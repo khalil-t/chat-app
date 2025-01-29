@@ -15,8 +15,7 @@ return (
 				}
 			
 			>
-				<div className={`avatar `}>
-					<div className='w-12 rounded-full'>
+<div className={`avatar ${isOnline ? "online" : ""}`}>					<div className='w-12 rounded-full'>
 						<img src={conversation.profilePic} alt='user avatar' />
 					</div>
 				</div>

@@ -23,15 +23,27 @@ const useConversation = create((set) => ({
     })),
 
   fetchMessages: async (conversationId) => {
+    if (!conversationId) {
+      console.error("Invalid conversation ID:", conversationId);
+      return;
+    }
+
     try {
       const res = await fetch(`${import.meta.env.VITE_RECEIVE_MESSAGES_URL}/${conversationId}`, {
         credentials: "include",
       });
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
       const data = await res.json();
+   //   console.log("Fetched Messages:", data);
+
       set({
         messages: {
-          messages: data.messages || [],
-          participants: data.participants || [],
+          messages: data?.messages || [],
+          participants: data?.participants || [],
         },
       });
     } catch (error) {

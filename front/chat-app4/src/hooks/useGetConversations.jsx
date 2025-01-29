@@ -2,7 +2,7 @@
 
 
 import React from 'react'
-
+//
 const useGetConversations = () => {
   const [conversations ,setConversation]= useState([])
 
@@ -20,12 +20,7 @@ catch(error){console.log(error)}
 }
 
 getConversations ()
-  }
-    
-    
-    
-    
-    
+  }  
     ,[])
 
 return {conversations}
