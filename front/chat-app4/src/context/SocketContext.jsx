@@ -27,9 +27,11 @@ setSocket(socket)
 
 //console.log(Auth)
 socket.on("getOnlineUsers", (user)=>{
+
     setOnlineUsers(user)
+    console.log( OnlineUsers)
+
 })
-//console.log( OnlineUsers)
 return () => socket.close();
 }
 else{
@@ -39,6 +41,9 @@ else{
     }
 }
 },[Auth])
+useEffect(() => {
+    console.log("Updated Online Users:", OnlineUsers);
+}, [OnlineUsers]);
 return <SocketContext.Provider value={{socket ,OnlineUsers}}>{children}</SocketContext.Provider>
 }
 
