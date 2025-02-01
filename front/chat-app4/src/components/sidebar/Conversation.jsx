@@ -33,4 +33,3 @@ return (
 	);
 };
 export default Conversation;
-//check if the currnt user is online and display the green 

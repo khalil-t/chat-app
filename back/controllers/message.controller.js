@@ -22,13 +22,13 @@ let conversationsearch= await conversation.findOne({
 if(newmassage){
     conversationsearch.messages.push(newmassage._id)
 }
+
 await conversationsearch.save()
 
 const reciverId =getreciveSocket(reciverid)
-     //console.log(`reciverId : ${reciverid}`)
+    //console.log(`reciverId : ${newmassage}`)
 if(reciverId){
-    io.to(reciverId).emit("newMessgae", newmassage)
-//    console.log(`newmassage:${newmassage}`)
+    io.to(reciverId).emit("newMessage", newmassage)
 }
 res.status(201).send({ message: 'Message sent successfully', newmassage });
 }

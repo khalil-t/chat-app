@@ -4,26 +4,21 @@ import { useSocketContext } from "../context/SocketContext";
 import useConversation from "../zustand/useConversation";
 
 
-const useListenMessages =()=>{
 
+const useListenMessages =()=>{
+   // console.log("newmessage")
     const { socket } = useSocketContext();
 	const { messages, setMessages } = useConversation();
-
     useEffect(()=>{
+        if (!socket) return; 
 socket.on("newMessage",(newmessage)=>{
-
-
-
-    setMessages([...messages,newmessage])
-
+      const currentMessages = Array.isArray(messages.messages) ? messages.messages : [];
+      const updatedMessages = [...currentMessages, newmessage.message];
+      console.log(updatedMessages)
+      setMessages(updatedMessages);
 });
-//console.log(messages)
-
-
 return () => socket?.off("newMessage");
     },[socket, setMessages, messages])
-
-
 }
 
 export default useListenMessages;

@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import Message from "./Message";
 import useConversation from "../../zustand/useConversation";
 import MessageSkeleton from "../../skeletons/MessageSkeleton";
-
+import useListenMessages from "../../hooks/useListenMessages";
 const Messages = () => {
   const { messages, loading, fetchMessages, selectedConversation } = useConversation();
-
+  useListenMessages()
   useEffect(() => {
     if (selectedConversation) {
-      fetchMessages(selectedConversation._id); // Load messages for the selected conversation
+      fetchMessages(selectedConversation._id); 
     }
   }, [selectedConversation, fetchMessages]);
 

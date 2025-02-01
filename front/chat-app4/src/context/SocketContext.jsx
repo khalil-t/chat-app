@@ -29,7 +29,6 @@ setSocket(socket)
 socket.on("getOnlineUsers", (user)=>{
 
     setOnlineUsers(user)
-    console.log( OnlineUsers)
 
 })
 return () => socket.close();
@@ -40,7 +39,7 @@ else{
         setSocket(null);
     }
 }
-},[Auth])
+},[Auth]) 
 useEffect(() => {
     console.log("Updated Online Users:", OnlineUsers);
 }, [OnlineUsers]);

@@ -16,16 +16,17 @@ cors:{
 
 const socketMap= {}
 export const getreciveSocket=(user)=>{
+   // console.log(socketMap[user])
     return socketMap[user]
     
     }
 io.on("connection",(socket)=>{
-    //console.log(`user connected ${socket.id}`)
 const UserId= socket.handshake.query.userId;
 
-if(UserId!= "undefined")socketMap[UserId]=socket.id
+if(UserId!= "undefined"){socketMap[UserId]=socket.id }
+else {console.log("undefined")
+}
 
-//console.log(`socket map ${socketMap[UserId]}`)
 io.emit("getOnlineUsers",Object.keys(socketMap))
 
  socket.on("disconnect",()=>{
