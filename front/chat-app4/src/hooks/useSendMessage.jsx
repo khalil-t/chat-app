@@ -18,8 +18,6 @@ const useSendMessage = () => {
         }
       );
       const data = await res.json();
-
-      // Add new message to the state
       const currentMessages = Array.isArray(messages.messages) ? messages.messages : [];
       const updatedMessages = [...currentMessages, data.newmassage];
       setMessages(updatedMessages);

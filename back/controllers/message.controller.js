@@ -36,17 +36,6 @@ catch(error){
 console.log("Error in contrfffoller", error.message);
 res.status(500).json({error: error.message})}
 }
-
-
-
-
-
-
-
-
-
- 
-
 export const receivemessage=async(req,res)=>{
 
     try{

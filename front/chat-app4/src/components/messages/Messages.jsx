@@ -6,6 +6,7 @@ import useListenMessages from "../../hooks/useListenMessages";
 const Messages = () => {
   const { messages, loading, fetchMessages, selectedConversation } = useConversation();
   useListenMessages()
+ // console.log(messages)
   useEffect(() => {
     if (selectedConversation) {
       fetchMessages(selectedConversation._id); 
