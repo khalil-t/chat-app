@@ -28,6 +28,7 @@ const useConversation = create((set) => ({
       return;
     }
     try {
+      //console.log(`${import.meta.env.VITE_RECEIVE_MESSAGES_URL}/${conversationId}`)
       const res = await fetch(`${import.meta.env.VITE_RECEIVE_MESSAGES_URL}/${conversationId}`, {
         credentials: "include",
       });
@@ -35,7 +36,11 @@ const useConversation = create((set) => ({
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
       const data = await res.json();
+<<<<<<< HEAD
    //   console.log("Fetched Messages:", data);
+=======
+   //  console.log("Fetched Messages:", data);
+>>>>>>> 250239e (fix message component)
       set({
         messages: {
           messages: data?.messages || [],

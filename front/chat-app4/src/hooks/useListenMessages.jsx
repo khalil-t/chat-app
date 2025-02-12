@@ -12,7 +12,10 @@ const useListenMessages =()=>{
         socket.on("newMessage", (newmessage) => {
           
           const currentMessages = Array.isArray(messages.messages) ? messages.messages : [];
+<<<<<<< HEAD
           console.log(currentMessages)
+=======
+>>>>>>> 250239e (fix message component)
           const updatedMessages = [...currentMessages, newmessage];
           setMessages(updatedMessages);
                 

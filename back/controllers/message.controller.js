@@ -29,6 +29,7 @@ const reciverId =getreciveSocket(reciverid)
     //console.log(`reciverId : ${newmassage}`)
 if(reciverId){
     io.to(reciverId).emit("newMessage", newmassage)
+    console.log(newmassage)
 }
 res.status(201).send({ message: 'Message sent successfully', newmassage });
 }

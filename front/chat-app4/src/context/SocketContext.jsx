@@ -41,7 +41,7 @@ else{
 }
 },[Auth]) 
 useEffect(() => {
-    console.log("Updated Online Users:", OnlineUsers);
+    //console.log("Updated Online Users:", OnlineUsers);
 }, [OnlineUsers]);
 return <SocketContext.Provider value={{socket ,OnlineUsers}}>{children}</SocketContext.Provider>
 }

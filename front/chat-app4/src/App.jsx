@@ -14,9 +14,9 @@ function App() {
         <Routes>
         <Route path="/" element={Auth !== null?<Home /> : <Navigate to={"/login"} />} /> 
 
-        <Route path="/SignUp" element={Auth !== null?<Navigate to='/' />:<SignUp />} /> 
+        <Route path="/SignUp" element={Auth ?<Navigate to='/' />:<SignUp />} /> 
 
-        <Route path="/Login" element={Auth !== null?<Navigate to='/' />:<Login />}/> 
+        <Route path="/Login" element={Auth ?<Navigate to='/' />:<Login />}/> 
 
         </Routes> 
     </div>
