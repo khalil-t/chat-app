@@ -11,6 +11,8 @@ return (
 				className= {`flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer
 			`}
 				onClick={()=>{ setSelectedConversation(conversation)
+
+					console.log(selectedConversation)
 }
 				}
 			

@@ -36,11 +36,7 @@ const useConversation = create((set) => ({
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
       const data = await res.json();
-<<<<<<< HEAD
-   //   console.log("Fetched Messages:", data);
-=======
    //  console.log("Fetched Messages:", data);
->>>>>>> 250239e (fix message component)
       set({
         messages: {
           messages: data?.messages || [],
