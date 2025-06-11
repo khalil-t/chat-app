@@ -42,7 +42,7 @@ This is a real-time chat application that utilizes **Socket.IO** for instant mes
 
 ## Website Preview
 
-![Website Screenshot](./screen/github.PNG)
+![Website Screenshot](./screenshot/github.PNG)
 
 
 ---
