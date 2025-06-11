@@ -11,7 +11,7 @@ dotenv.config();
 
 connectToMongoDB()
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN, // Or your frontend origin
+  origin: "http://localhost:3000", 
   credentials: true
 }));
 app.use(express.json());
@@ -21,9 +21,7 @@ app.use('/', router);
 app.use('/', messageRoutes )
 app.use('/', allUsers )
 
-const port =  7000
-//process.env.PORT ||
+const port = process.env.PORT || 7000;
 server.listen(port, () => {
   console.log(`Server is listening on port ${port}...`);
 });
-//import server and app from socket and change app with server
