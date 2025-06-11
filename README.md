@@ -42,11 +42,10 @@ This is a real-time chat application that utilizes **Socket.IO** for instant mes
 
 ## Website Preview
 
-![Website Screenshot](./screenshot/github.PNG)
-
-
-![Website Screenshot](./screenshot/github1.PNG)
-
+<p align="center">
+  <img src="./screenshot/github.PNG" alt="Screenshot 1" width="45%" />
+  <img src="./screenshot/github1.PNG" alt="Screenshot 2" width="45%" />
+</p>
 ---
 
 ## ⚙️ Getting Started
