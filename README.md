@@ -40,9 +40,10 @@ This is a real-time chat application that utilizes **Socket.IO** for instant mes
 
 ---
 
-## 🌐 Preview
+## Website Preview
 
 ![Website Screenshot](./screen/github.PNG)
+
 
 ---
 
