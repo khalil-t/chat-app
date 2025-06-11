@@ -45,6 +45,8 @@ This is a real-time chat application that utilizes **Socket.IO** for instant mes
 ![Website Screenshot](./screenshot/github.PNG)
 
 
+![Website Screenshot](./screenshot/github1.PNG)
+
 ---
 
 ## ⚙️ Getting Started
