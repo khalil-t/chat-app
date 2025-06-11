@@ -43,8 +43,8 @@ This is a real-time chat application that utilizes **Socket.IO** for instant mes
 ## Website Preview
 
 <p align="center">
-  <img src="./screenshot/github.PNG" alt="Screenshot 1" width="45%" />
-  <img src="./screenshot/github1.PNG" alt="Screenshot 2" width="45%" />
+  <img src="./screenshot/github.PNG" alt="Screenshot 1" width="400" height="250" />
+  <img src="./screenshot/github1.PNG" alt="Screenshot 2" width="400" height="250" />
 </p>
 ---
 
